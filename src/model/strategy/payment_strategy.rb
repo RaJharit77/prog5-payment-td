@@ -1,8 +1,8 @@
-require_relative '../info_paiement'
+require_relative "../../info_payment"
 
 class PaiementStrategy
-    def generer_details(montant, method)
-        InfoPaiement.new(rand(1000000), montant, method)
+    def generer_details(montant, payment_method)
+        InfoPaiement.new(id: rand(1_000_000), amount: montant, payment_method: payment_method)
     end
 
     def pay(_montant)
