@@ -18,7 +18,7 @@ class VisaPaiement < PaiementStrategy
             details.echouer!
             puts "Échec du paiement Visa pour un montant de #{montant}Ar."
         end
-        
+
         details
     end
 end

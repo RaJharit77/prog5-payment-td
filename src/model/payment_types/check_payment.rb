@@ -17,7 +17,7 @@ class ChequePaiement < PaiementStrategy
             details.echouer!
             puts "Échec du paiement par chèque pour un montant de #{montant}Ar."
         end
-        
+
         details
     end
 end
