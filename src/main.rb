@@ -1,14 +1,15 @@
-require_relative 'model/payment_types/visa_payment'
-require_relative 'model/payment_types/cheque_payment'
-require_relative 'model/payment_types/cash_payment'
-require_relative 'model/payment_types/mobile_money_payment'
+require_relative "model/payment_types/visa_payment"
+require_relative "model/payment_types/check_payment"
+require_relative "model/payment_types/cash_payment"
+require_relative "model/payment_types/mobile_money_payment"
 
 def effectuer_transaction(paiement, montant)
     puts "--- Nouvelle Transaction de Paiement ---"
     details = paiement.pay(montant)
 
-    if details.statut == :termine
-        puts "Détails du paiement : Montant - #{details.montant}Ar, Méthode - #{details.methode}, Statut - #{details.statut}"
+    if details.status == :termine
+        puts "Détails du paiement : Montant - #{details.amount}Ar, " \
+        "Méthode - #{details.payment_method}, Statut - #{details.status}"
     else
         puts "Transaction ID #{details.id} de paiement a échoué. Veuillez réessayer."
     end
