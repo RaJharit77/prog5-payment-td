@@ -1,4 +1,4 @@
-require_relative 'paiement_strategy'
+require_relative 'strategy/paiement_strategy'
 
 class MobileMoneyPaiement < PaiementStrategy
     def initialize(phone_number)

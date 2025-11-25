@@ -1,4 +1,4 @@
-require_relative 'paiement_strategy'
+require_relative 'strategy/paiement_strategy'
 
 class VisaPaiement < PaiementStrategy
     def initialize(card_number)
