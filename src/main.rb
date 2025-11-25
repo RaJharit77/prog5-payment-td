@@ -1,7 +1,7 @@
-require_relative 'model/payment/visa_payment'
-require_relative 'model/payment/cheque_payment'
-require_relative 'model/payment/cash_payment'
-require_relative 'model/payment/mobile_money_payment'
+require_relative 'model/payment_types/visa_payment'
+require_relative 'model/payment_types/cheque_payment'
+require_relative 'model/payment_types/cash_payment'
+require_relative 'model/payment_types/mobile_money_payment'
 
 def effectuer_transaction(paiement, montant)
     puts "--- Nouvelle Transaction de Paiement ---"
