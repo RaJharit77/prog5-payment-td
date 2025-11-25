@@ -1,4 +1,4 @@
-require_relative 'strategy/paiement_strategy'
+require_relative "../strategy/payment_strategy"
 
 class EspecesPaiement < PaiementStrategy
     def pay(montant)

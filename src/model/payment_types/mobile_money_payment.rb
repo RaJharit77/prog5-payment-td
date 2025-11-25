@@ -1,4 +1,4 @@
-require_relative 'strategy/paiement_strategy'
+require_relative "../strategy/payment_strategy"
 
 class MobileMoneyPaiement < PaiementStrategy
     def initialize(phone_number)
@@ -10,7 +10,7 @@ class MobileMoneyPaiement < PaiementStrategy
 
         puts "Traitement du paiement Mobile Money #{@phone_number} pour un montant de #{montant}Ar..."
 
-        if @phone_number.match?(/\A\+2613\d{7}\z/)
+        if @phone_number.match?(/\A(034|038)\d{7}\z/)
             details.terminer!
             puts "Paiement Mobile Money réussi pour un montant de #{montant}Ar."
         else
