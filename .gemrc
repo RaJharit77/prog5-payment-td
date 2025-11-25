@@ -1,0 +1,2 @@
+echo 'gem: --user-install' >> ~/.gemrc
+echo 'gempath: ~/.gem' >> ~/.gemrc

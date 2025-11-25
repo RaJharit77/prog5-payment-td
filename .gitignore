@@ -78,3 +78,37 @@ build-iPhoneSimulator/
 /rspec-*.html
 /rspec-*.png
 /rspec-junit.xml
+/parallel_tests/
+
+# Fichiers temporaires
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+# Environnements
+/.bundle/
+/vendor/bundle/
+/lib/bundler/man/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Documentation
+.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+
+# Fichiers système
+.DS_Store
