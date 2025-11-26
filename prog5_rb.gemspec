@@ -9,10 +9,10 @@ Gem::Specification.new do |spec|
     spec.homepage      = "https://github.com/RaJharit77/prog5-payment-td"
     spec.license       = "MIT"
 
-    spec.files         = Dir["src/**/*", "README.md", "LICENSE.txt"]
+    spec.files         = Dir["src/**/*", "README.md", "Rakefile", "Gemfile", "Gemfile.lock"]
     spec.require_paths = ["src"]
 
-    spec.required_ruby_version = '>= 3.0.0'
+    spec.required_ruby_version = '>= 3.2.0'
 
     spec.add_development_dependency "debug", "~> 1.9"
     spec.add_development_dependency "rubocop", "~> 1.81"

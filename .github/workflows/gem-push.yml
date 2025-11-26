@@ -19,13 +19,13 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.2.2
+        ruby-version: 3.2
 
     - name: Install dependencies
       run: bundle install
 
     - name: Build gem
-      run: gem build *.gemspec
+      run: gem build prog5_rb.gemspec
 
     - name: Publish to GitHub Packages
       if: success() && github.event_name == 'push' && github.ref == 'refs/heads/main'
