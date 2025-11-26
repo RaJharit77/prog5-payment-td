@@ -8,10 +8,11 @@ on:
 
 jobs:
   build:
-    name: Build + Test
+    name: Build + Publish
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      packages: write
 
     steps:
     - uses: actions/checkout@v4
@@ -23,38 +24,17 @@ jobs:
     - name: Install dependencies
       run: bundle install
 
-    - name: Run Rubocop
-      run: bundle exec rubocop
+    - name: Build gem
+      run: gem build *.gemspec
 
-    - name: Run application test
-      run: ruby src/main.rb
-
-    - name: Build Gem (Dry Run)
+    - name: Publish to GitHub Packages
+      if: success() && github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: |
-        gem build *.gemspec
-        echo "Gem built successfully (dry run)"
-        
-  # Commenter la publication pour l'instant
-  # publish:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   permissions:
-  #     contents: read
-  #     packages: write
-  #   steps:
-  #   - uses: actions/checkout@v4
-  #   - name: Set up Ruby
-  #     uses: ruby/setup-ruby@v1
-  #     with:
-  #       ruby-version: 3.2.2
-  #   - name: Build and Publish to GPR
-  #     run: |
-  #       mkdir -p $HOME/.gem
-  #       touch $HOME/.gem/credentials
-  #       chmod 0600 $HOME/.gem/credentials
-  #       printf -- "---\n:github: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
-  #       gem build *.gemspec
-  #       gem push --key github --host https://rubygems.pkg.github.com/${OWNER} *.gem
-  #     env:
-  #       GEM_HOST_API_KEY: "Bearer ${{secrets.GITHUB_TOKEN}}"
-  #       OWNER: ${{ github.repository_owner }}
+        mkdir -p $HOME/.gem
+        touch $HOME/.gem/credentials
+        chmod 0600 $HOME/.gem/credentials
+        printf -- "---\n:github: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
+        gem push --key github --host https://rubygems.pkg.github.com/${OWNER} *.gem
+      env:
+        GEM_HOST_API_KEY: "Bearer ${{secrets.GITHUB_TOKEN}}"
+        OWNER: ${{ github.repository_owner }}

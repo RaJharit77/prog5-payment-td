@@ -11,5 +11,11 @@ end
 
 desc "Lancer Rubocop"
 task :lint do
-    sh "rubocop"
+    sh "bundle exec rubocop"
+end
+
+desc "Test CI"
+task :ci do
+    sh "bundle exec rubocop"
+    sh "ruby src/main.rb"
 end
