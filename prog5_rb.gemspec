@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
     spec.name          = "prog5_rb"
-    spec.version       = "1.0.0"
+    spec.version       = "1.0.1"
     spec.authors       = ["RaJharit77"]
     spec.email         = ["hei.rajo@gmail.com"]
 
