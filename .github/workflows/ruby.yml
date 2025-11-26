@@ -1,4 +1,4 @@
-name: Wallet Ruby Linter
+name: Ruby Linter
 
 on:
   push:
